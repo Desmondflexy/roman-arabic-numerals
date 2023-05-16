@@ -9,14 +9,13 @@ function main() {
   romanInput.addEventListener('blur', handleArabicInput);
 
   function handleArabicInput() {
-    romanInput.value = toRoman(arabicInput.value);
-
     if (arabicInput.validity.rangeUnderflow || arabicInput.validity.rangeOverflow) {
       arabicInput.setCustomValidity('Input must be between 1 and 3999');
       arabicInput.reportValidity();
-  } else {
-      arabicInput.setCustomValidity("");
-  }
+      return;
+    }
+    arabicInput.setCustomValidity("");
+    romanInput.value = toRoman(arabicInput.value);
 
     /**Converts number to roman numeral */
     function toRoman(num) {
@@ -42,15 +41,15 @@ function main() {
   function handleRomanInput() {
     romanInput.value = romanInput.value.toUpperCase();
     arabicInput.value = toArabic(romanInput.value);
-    if (romanInput.value === ''){
-      arabicInput.value = '';
-    }
     if (romanInput.validity.patternMismatch) {
       romanInput.setCustomValidity('Invalid roman numeral');
       romanInput.reportValidity();
-  } else {
+    } else {
       romanInput.setCustomValidity("");
-  }
+    }
+    if (romanInput.value === '') {
+      arabicInput.value = '';
+    }
 
     /**Converts roman numeral to number (arabic numeral) */
     function toArabic(s) {
