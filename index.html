@@ -12,16 +12,60 @@
 
 <body>
     <h1>Roman-Arabic Numerals</h1>
-    <div class="arabic_roman">
-        <label for="arabic">Arabic numeral [1-3999]</label> <br>
-        <input id="arabic" type="text" placeholder="Arabic numeral" maxlength="4">
-        <span></span>
+
+    <div class="flex">
+        <div>
+            <div class="arabic_roman input-div">
+                <label for="arabic">Arabic numeral [1-3999]</label>
+                <input id="arabic" type="number" max="3999" min="1">
+            </div>
+
+            <div class="roman_arabic input-div">
+                <label for="roman">Roman numeral [MDCLXVI]</label>
+                <input id="roman" type="text" pattern="[MDCLXVI]+">
+            </div>
+        </div>
+
+        <table border="1" cellspacing="2" cellpadding="2">
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>I</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>L</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td>1000</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="roman_arabic">
-        <label for="roman">Roman numeral [MDCLXVI]</label> <br>
-        <input id="roman" type="text" placeholder="Roman numeral">
-        <span></span>
-    </div>
+
 
 </body>
 

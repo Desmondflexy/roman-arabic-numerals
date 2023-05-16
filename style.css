@@ -1,14 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
-body{
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* border: 1px dotted red; */
+}
+
+html {
+    min-width: 360px;
+    font-size: 1em;
+}
+
+body {
     font-family: kanit, sans-serif;
+    padding: 20px;
 }
 
-div{
-    margin: 20px 10px;
+h1 {
+    /* text-align: center; */
 }
 
-input{
+.input-div {
+    margin: 20px 0;
+    width: 300px;
+}
+
+label {
+    display: inline-block;
+    width: 100%;
+    color: darkblue;
+}
+
+input {
     font-family: inherit;
-    width: 200px;
+    width: 100%;
+    font-size: 2em;
+    display: inline-block;
+    margin-right: 50px;
+    color: darkred;
 }
+
+input:invalid {
+    background-color: lightpink;
+    outline: 2px solid red;
+}
+
+table {
+    margin-top: 20px;
+    width: 300px;
+}
+
+td {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    gap: 0px 50px;
+}
+
+/* tr:nth-child(odd) {
+    background-color: cyan;
+} */
+
+/* tr:nth-child(even) {
+    background-color: orange;
+} */
