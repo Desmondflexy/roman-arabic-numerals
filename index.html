@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,20 @@
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 </head>
+
 <body>
     <h1>Roman-Arabic Numerals</h1>
-    <form action="">
-        <input type="text" placeholder="Enter arabic numeral" maxlength="4">
-    </form>
-    <p></p>
+    <div class="arabic_roman">
+        <label for="arabic">Arabic numeral [1-3999]</label> <br>
+        <input id="arabic" type="text" placeholder="Arabic numeral" maxlength="4">
+        <span></span>
+    </div>
+    <div class="roman_arabic">
+        <label for="roman">Roman numeral [MDCLXVI]</label> <br>
+        <input id="roman" type="text" placeholder="Roman numeral">
+        <span></span>
+    </div>
+
 </body>
+
 </html>

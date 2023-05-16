@@ -1,14 +1,21 @@
-const form = document.querySelector('form');
-const input = document.querySelector('input');
-const p = document.querySelector('p');
+const [arabicInput, romanInput] = document.querySelectorAll('div>input');
+const [resultRoman, resultArabic] = document.querySelectorAll('div>span');
 
-form.addEventListener('submit', e => e.preventDefault());
-input.addEventListener('input', e => {
-  p.innerHTML = int2roman(e.target.value);
-})
+arabicInput.value = romanInput.value = '';
+arabicInput.addEventListener('input', handleArabicInput);
+romanInput.addEventListener('input', handleRomanInput);
 
 
-function roman2int(s) {
+function handleArabicInput(){
+  resultRoman.innerHTML = toRoman(this.value);
+}
+
+function handleRomanInput(){
+  resultArabic.innerHTML = toArabic(this.value);
+}
+
+/**Converts roman numeral to number (arabic numeral) */
+function toArabic(s) {
   const roman_arab = {
     'M': 1000, 'CM': 900, 'D': 500, 'CD': 400, 'C': 100, 'XC': 90,
     'L': 50, 'XL': 40, 'X': 10, 'IX': 9, 'V': 5, 'IV': 4, 'I': 1
@@ -29,7 +36,8 @@ function roman2int(s) {
   return num;
 }
 
-function int2roman(num) {
+/**Converts number to roman numeral */
+function toRoman(num) {
   const arab_roman = {
     1000: 'M', 900: 'CM', 500: 'D', 400: 'CD', 100: 'C', 90: 'XC',
     50: 'L', 40: 'XL', 10: 'X', 9: 'IX', 5: 'V', 4: 'IV', 1: 'I'

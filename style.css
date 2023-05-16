@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+body{
+    font-family: kanit, sans-serif;
+}
+
+div{
+    margin: 20px 10px;
+}
+
+input{
+    font-family: inherit;
+    width: 200px;
+}
