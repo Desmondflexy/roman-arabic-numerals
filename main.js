@@ -2,7 +2,6 @@ main();
 
 function main() {
   const [arabicInput, romanInput] = document.querySelectorAll('.input-div>input');
-
   arabicInput.value = romanInput.value = '';
   arabicInput.addEventListener('input', handleArabicInput);
   romanInput.addEventListener('input', handleRomanInput);
@@ -12,10 +11,12 @@ function main() {
     if (arabicInput.validity.rangeUnderflow || arabicInput.validity.rangeOverflow) {
       arabicInput.setCustomValidity('Input must be between 1 and 3999');
       arabicInput.reportValidity();
-      return;
+      addErrorCSS(arabicInput, romanInput);
+    } else {
+      romanInput.value = toRoman(arabicInput.value);
+      arabicInput.setCustomValidity("");
+      arabicInput.onkeyup = () => arabicInput.classList.remove('invalid');
     }
-    arabicInput.setCustomValidity("");
-    romanInput.value = toRoman(arabicInput.value);
 
     /**Converts number to roman numeral */
     function toRoman(num) {
@@ -40,16 +41,18 @@ function main() {
 
   function handleRomanInput() {
     romanInput.value = romanInput.value.toUpperCase();
-    arabicInput.value = toArabic(romanInput.value);
+
     if (romanInput.validity.patternMismatch) {
       romanInput.setCustomValidity('Invalid roman numeral');
       romanInput.reportValidity();
+      addErrorCSS(romanInput, arabicInput);
     } else {
+      arabicInput.value = toArabic(romanInput.value);
       romanInput.setCustomValidity("");
+      romanInput.onkeyup = () => romanInput.classList.remove('invalid');
     }
-    if (romanInput.value === '') {
-      arabicInput.value = '';
-    }
+
+    if (romanInput.value === '') arabicInput.value = '';
 
     /**Converts roman numeral to number (arabic numeral) */
     function toArabic(s) {
@@ -71,6 +74,18 @@ function main() {
         }
       }
       return num;
+    }
+  }
+
+  /**Stylize invalid user inputs on key press by adding and removing css classes*/
+  function addErrorCSS(input1, input2) {
+    input1.onkeyup = () => {
+      input1.classList.add('invalid');
+      input2.classList.add('invalid');
+    }
+    input1.onkeydown = () => {
+      input1.classList.remove('invalid');
+      input2.classList.remove('invalid');
     }
   }
 }

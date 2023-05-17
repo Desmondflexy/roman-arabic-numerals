@@ -17,10 +17,6 @@ body {
     padding: 20px;
 }
 
-h1 {
-    /* text-align: center; */
-}
-
 .input-div {
     margin: 20px 0;
     width: 300px;
@@ -38,20 +34,13 @@ input {
     font-size: 2em;
     display: inline-block;
     margin-right: 50px;
-    color: darkred;
-}
-
-input:invalid {
-    background-color: lightpink;
-    outline: 2px solid red;
+    background-color: lightblue;
+    padding: 10px;
 }
 
 table {
     margin-top: 20px;
     width: 300px;
-}
-
-td {
     text-align: center;
 }
 
@@ -62,10 +51,7 @@ td {
     gap: 0px 50px;
 }
 
-/* tr:nth-child(odd) {
-    background-color: cyan;
-} */
-
-/* tr:nth-child(even) {
-    background-color: orange;
-} */
+.invalid{
+    background-color: lightcoral;
+    color: darkred;
+}
